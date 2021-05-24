@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+.errorlist {
+    list-style-type: none;
+    padding-left: 0;
+    color: #f05050;
+    clear: both;
+    animation: FadeInError 0.4s ease forwards;
+    position: relative;
+    height: 0;
+    font-size: 14px;
+
+    li {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes FadeInError {
+    from {
+        opacity: 0;
+        top: -10px;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        top: 2px;
+        max-height: 100px;
+    }
+}
