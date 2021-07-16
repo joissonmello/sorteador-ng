@@ -11,8 +11,8 @@
                 <div class="w-50 d-inline-block" *ngIf="mostraBotao">
                     <label for="data-sorteio">Data da diária:</label>
                     <input class="form-control" #dataSorteioDateInput autocomplete="off"
-                        #dataSorteioDatePicker="bsDatepicker" bsDatepicker id="data" name="data"
-                        placement="bottom" placeholder="dd/mm/aaaa" formControlName="data">
+                        #dataSorteioDatePicker="bsDatepicker" bsDatepicker id="data" name="data" placement="bottom"
+                        placeholder="dd/mm/aaaa" formControlName="data">
                     <ul class="errorlist" *ngIf="controls.data.hasError('required')">
                         <li>Este campo é obrigatório</li>
                     </ul>
@@ -30,7 +30,9 @@
                 <div class="col d-flex flex-wrap justify-content-center">
                     <img src="https://softfocus.com.br/avatares/{{ participante.avatar }}.jpg" [alt]="participante.nome"
                         [title]="participante.nome" *ngFor="let participante of participantes" class="participante"
-                        id="f-{{ participante.id }}" [class.inelegivel]="participante.inelegivelFacilitador">
+                        id="f-{{ participante.id }}" [class.inelegivel]="participante.inelegivelFacilitador"
+                        [class.selecionado]="facilitador?.id === participante.id"
+                        (click)="selecionaFacilitador(participante)">
                 </div>
             </div>
         </fieldset>
@@ -42,7 +44,9 @@
                 <div class="col d-flex flex-wrap justify-content-center">
                     <img src="https://softfocus.com.br/avatares/{{ participante.avatar }}.jpg" [alt]="participante.nome"
                         [title]="participante.nome" *ngFor="let participante of participantes" class="participante"
-                        id="s-{{ participante.id }}" [class.inelegivel]="participante.inelegivelSecretario">
+                        id="s-{{ participante.id }}" [class.inelegivel]="participante.inelegivelSecretario"
+                        [class.selecionado]="secretario?.id === participante.id"
+                        (click)="selecionaSecretario(participante)">
                 </div>
             </div>
         </fieldset>

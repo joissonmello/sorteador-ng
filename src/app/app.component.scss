@@ -32,14 +32,27 @@ h1 {
     margin: 5px;
     transition: all .2s ease;
     position: relative;
+    cursor: pointer;
+
+    &.selecionado {
+        transform: scale(1.5);
+        border: 3px solid #16ff28;
+        z-index: 9;
+    }
 
     &.active:not(.inelegivel) {
         transform: scale(1.5);
         z-index: 5;
     }
 
+    &:not(.inelegivel):hover {
+        transform: scale(1.5);
+        z-index: 10;
+    }
+
     &.inelegivel {
         filter: grayscale(1);
+        cursor: default;
     }
 }
 

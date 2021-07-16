@@ -115,11 +115,15 @@ export class AppComponent implements OnInit {
         if (this.form.valid) {
             if (!this.sorteando) {
                 this.sorteando = true;
-                const numeroFacilitador = this.numeroAleatorio();
-                const numeroSecretario = this.numeroAleatorio();
+                if (!this.facilitador) {
+                    const numeroFacilitador = this.numeroAleatorio();
+                    this.animaFacilitador(numeroFacilitador, 'f');
+                }
 
-                this.animaFacilitador(numeroFacilitador, 'f');
-                this.animaFacilitador(numeroSecretario, 's');
+                if (!this.secretario) {
+                    const numeroSecretario = this.numeroAleatorio();
+                    this.animaFacilitador(numeroSecretario, 's');
+                }
             }
         }
     }
@@ -157,6 +161,14 @@ export class AppComponent implements OnInit {
                 }
             }
         }, 50);
+    }
+
+    selecionaFacilitador(participante: Participante): void {
+        this.facilitador = participante;
+    }
+
+    selecionaSecretario(participante: Participante): void {
+        this.secretario = participante;
     }
 
     removeAnimacao(imgParticipante: HTMLElement | null): void {
