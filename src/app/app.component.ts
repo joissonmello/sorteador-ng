@@ -164,13 +164,13 @@ export class AppComponent implements OnInit {
     }
 
     selecionaFacilitador(participante: Participante): void {
-        if (!participante.inelegivelFacilitador) {
+        if (!participante.inelegivelFacilitador && participante.id !== this.secretario?.id) {
             this.facilitador = participante;
         }
     }
 
     selecionaSecretario(participante: Participante): void {
-        if (!participante.inelegivelSecretario) {
+        if (!participante.inelegivelSecretario && participante.id !== this.facilitador?.id) {
             this.secretario = participante;
         }
     }
