@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { asNativeElements, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Participante } from 'src/app/models/participante';
 import { Sorteio } from 'src/app/models/sorteio';
 import { SlackService } from 'src/app/services/slack/slack.service';
@@ -17,6 +17,8 @@ export class ResultadoComponent {
     @Output() alterarParticipante: EventEmitter<string> = new EventEmitter<string>();
     @Output() sorteioSalvo: EventEmitter<Sorteio> = new EventEmitter<Sorteio>();
 
+    salvando = false;
+
     constructor(
         private sorteioService: SorteioService,
         private slackService: SlackService
@@ -27,16 +29,20 @@ export class ResultadoComponent {
     }
 
     salvar(): void {
-        const sorteio = new Sorteio();
-        sorteio.data = this.data;
-        sorteio.facilitador = this.facilitador.id
-        sorteio.secretario = this.secretario.id;
+        if (!this.salvando) {
+            this.salvando = true;
+            const sorteio = new Sorteio();
+            sorteio.data = this.data;
+            sorteio.facilitador = this.facilitador.id;
+            sorteio.secretario = this.secretario.id;
 
-        this.sorteioService.create(sorteio)
-            .subscribe(response => {
-                this.notifica(response);
-                this.sorteioSalvo.emit(response);
-            });
+            this.sorteioService.create(sorteio)
+                .subscribe(response => {
+                    this.notifica(response);
+                    this.sorteioSalvo.emit(response);
+                    this.salvando = false;
+                });
+        }
     }
 
     notifica(sorteio: Sorteio): void {
