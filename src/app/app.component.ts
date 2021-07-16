@@ -164,11 +164,15 @@ export class AppComponent implements OnInit {
     }
 
     selecionaFacilitador(participante: Participante): void {
-        this.facilitador = participante;
+        if (!participante.inelegivelFacilitador) {
+            this.facilitador = participante;
+        }
     }
 
     selecionaSecretario(participante: Participante): void {
-        this.secretario = participante;
+        if (!participante.inelegivelSecretario) {
+            this.secretario = participante;
+        }
     }
 
     removeAnimacao(imgParticipante: HTMLElement | null): void {
