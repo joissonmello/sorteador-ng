@@ -19,9 +19,11 @@ export class AppComponent implements OnInit {
     form!: FormGroup;
     sorteando = false;
     mostraBotao = true;
+    mostraSorteados = false;
 
     facilitador!: Participante | undefined;
     secretario!: Participante | undefined;
+    sorteiosDaSemana: Sorteio[] = [];
 
     constructor(
         private participanteService: ParticipanteService,
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
         };
         this.sorteioService.sorteiosDaSemana(queryOptions)
             .subscribe(response => {
+                this.sorteiosDaSemana = response;
                 this.setaParticipantesElegiveis(response);
             });
     }
@@ -154,7 +157,7 @@ export class AppComponent implements OnInit {
                 if ((this.facilitador?.id === this.secretario?.id) ||
                     (tipo === 'f' && participante.inelegivelFacilitador) ||
                     (tipo === 's' && participante.inelegivelSecretario)) {
-                        this.removeAnimacao(imgParticipante);
+                    this.removeAnimacao(imgParticipante);
                 } else {
                     this.sorteando = false;
                     clearInterval(interval);

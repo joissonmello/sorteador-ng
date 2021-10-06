@@ -1,5 +1,7 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import ptBr from '@angular/common/locales/pt';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,11 +9,14 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
+import { SorteadosDaSemanaComponent } from './components/sorteados-da-semana/sorteados-da-semana.component';
 
+registerLocaleData(ptBr);
 @NgModule({
     declarations: [
         AppComponent,
         ResultadoComponent,
+        SorteadosDaSemanaComponent,
     ],
     imports: [
         BrowserModule,
@@ -20,7 +25,9 @@ import { ResultadoComponent } from './components/resultado/resultado.component';
         BrowserAnimationsModule,
         ReactiveFormsModule
     ],
-    providers: [],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'pt' },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

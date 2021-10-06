@@ -30,7 +30,7 @@ h1 {
     height: 120px;
     border-radius: 100%;
     margin: 5px;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     position: relative;
     cursor: pointer;
 
@@ -65,5 +65,35 @@ h1 {
 
     p {
         font-size: 25px;
+    }
+}
+
+.botoes-de-acao {
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+
+    .sorteados-da-semana {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #cddc39;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(1px 1px 2px #666);
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+            filter: drop-shadow(1px 1px 2px #666);
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }

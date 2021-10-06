@@ -63,3 +63,13 @@
 <app-resultado *ngIf="facilitador && secretario" [facilitador]="facilitador" [secretario]="secretario"
     [data]="controls.data.value" (alterarParticipante)="alterarParticipante($event)"
     (sorteioSalvo)="sorteioSalvo($event)"></app-resultado>
+
+<app-sorteados-da-semana *ngIf="mostraSorteados" (fecharEvent)="mostraSorteados = false" [participantes]="participantes"
+    [sorteiosDaSemana]="sorteiosDaSemana"></app-sorteados-da-semana>
+
+
+<div class="botoes-de-acao">
+    <div class="sorteados-da-semana" *ngIf="sorteiosDaSemana.length" (click)="mostraSorteados = true">
+        <img src="/assets/images/calendar.svg" alt="Calendário">
+    </div>
+</div>
