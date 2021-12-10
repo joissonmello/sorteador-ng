@@ -8,7 +8,7 @@
                         <button class="btn btn-info mb-3" (click)="alterar('f')">Alterar</button>
                     </div>
                 </div>
-                <img src="https://softfocus.com.br/avatares/{{ facilitador.avatar }}.jpg" [alt]="facilitador.nome"
+                <img src="https://softfocus.com.br/avatares/{{ facilitador.avatar }}" [alt]="facilitador.nome"
                     [title]="facilitador.nome" class="participante">
                 <p>Facilitador(a): {{ facilitador.nome }}</p>
             </div>
@@ -18,7 +18,7 @@
                         <button class="btn btn-info mb-3" (click)="alterar('s')">Alterar</button>
                     </div>
                 </div>
-                <img src="https://softfocus.com.br/avatares/{{ secretario.avatar }}.jpg" [alt]="secretario.nome"
+                <img src="https://softfocus.com.br/avatares/{{ secretario.avatar }}" [alt]="secretario.nome"
                     [title]="secretario.nome" class="participante">
                 <p>Secretário(a): {{ secretario.nome }}</p>
             </div>
