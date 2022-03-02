@@ -1,0 +1,129 @@
+<div class="ranking">
+    <div class="content">
+        <h2 class="text-center mb-3">Ranking por período</h2>
+        <div class="row justify-content-center">
+            <div class="col-2"></div>
+            <div class="col-2 form-group">
+                <label for="ano">Escolha um ano</label>
+                <select name="ano" id="ano" [formControl]="anoControl" class="form-control">
+                    <option value="">Maiores de todos os tempos</option>
+                    <option [ngValue]="ano" *ngFor="let ano of anosSelecionaveis">{{ ano }}</option>
+                </select>
+            </div>
+            <div class="col-4 form-group">
+                <div class="total-sorteios">
+                    <h1>{{ sorteios?.total_sorteios }}</h1>
+                    <h5 *ngIf="anoControl.value">sorteios realizados no período</h5>
+                    <h5 *ngIf="!anoControl.value">sorteios realizados até hoje</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6">
+                <h2 class="text-center">Facilitadores</h2>
+
+                <div class="d-flex justify-content-center">
+                    <div class="podio">
+                        <div class="segundo">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.facilitadores[1].facilitador__avatar }}"
+                                [alt]="sorteios?.facilitadores[1].facilitador__nome"
+                                [title]="sorteios?.facilitadores[1].facilitador__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.facilitadores[1].total }} <small>vezes</small></span>
+                        </div>
+                        <div class="primeiro">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.facilitadores[0].facilitador__avatar }}"
+                                [alt]="sorteios?.facilitadores[0].facilitador__nome"
+                                [title]="sorteios?.facilitadores[0].facilitador__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.facilitadores[0].total }} <small>vezes</small></span>
+                        </div>
+                        <div class="terceiro">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.facilitadores[2].facilitador__avatar }}"
+                                [alt]="sorteios?.facilitadores[2].facilitador__nome"
+                                [title]="sorteios?.facilitadores[2].facilitador__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.facilitadores[3].total }} <small>vezes</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="outros">
+                    <table class="table table-striped table-dark mt-4">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let facilitador of sorteios?.facilitadores; let i = index;">
+                                <ng-container *ngIf="i > 2">
+                                    <td>{{ i + 1 }}ª</td>
+                                    <td>{{ facilitador.facilitador__nome }}</td>
+                                    <td>{{ facilitador.total }}</td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2 class="text-center">Secretários</h2>
+
+                <div class="d-flex justify-content-center">
+                    <div class="podio">
+                        <div class="segundo">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.secretarios[1].secretario__avatar }}"
+                                [alt]="sorteios?.secretarios[1].secretario__nome"
+                                [title]="sorteios?.secretarios[1].secretario__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.secretarios[1].total }} <small>vezes</small></span>
+                        </div>
+                        <div class="primeiro">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.secretarios[0].secretario__avatar }}"
+                                [alt]="sorteios?.secretarios[0].secretario__nome"
+                                [title]="sorteios?.secretarios[0].secretario__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.secretarios[0].total }} <small>vezes</small></span>
+                        </div>
+                        <div class="terceiro">
+                            <img src="https://softfocus.com.br/avatares/{{ sorteios?.secretarios[2].secretario__avatar }}"
+                                [alt]="sorteios?.secretarios[2].secretario__nome"
+                                [title]="sorteios?.secretarios[2].secretario__nome">
+                            <div class="base"></div>
+                            <span class="total">{{ sorteios?.secretarios[3].total }} <small>vezes</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="outros">
+                    <table class="table table-striped table-dark mt-4">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let secretario of sorteios?.secretarios; let i = index;">
+                                <ng-container *ngIf="i > 2">
+                                    <td>{{ i + 1 }}ª</td>
+                                    <td>{{ secretario.secretario__nome }}</td>
+                                    <td>{{ secretario.total }}</td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-3">
+                <button class="btn btn-success btn-sm" (click)="fecharEvent.emit()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

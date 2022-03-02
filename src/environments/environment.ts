@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    urlBackEndApi: 'http://localhost:8000/'
+    urlBackEndApi: 'http://localhost:8000/',
+    anoInicial: 2021
 };
 
 /*

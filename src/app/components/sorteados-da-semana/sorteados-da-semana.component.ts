@@ -14,8 +14,6 @@ export class SorteadosDaSemanaComponent implements OnInit {
     @Input() sorteiosDaSemana!: Sorteio[];
     sorteiosDaSemanaCopy!: Sorteio[];
 
-    constructor() { }
-
     ngOnInit(): void {
         this.mapeiaParticipantes();
         console.log(this.sorteiosDaSemana);

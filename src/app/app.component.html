@@ -67,9 +67,15 @@
 <app-sorteados-da-semana *ngIf="mostraSorteados" (fecharEvent)="mostraSorteados = false" [participantes]="participantes"
     [sorteiosDaSemana]="sorteiosDaSemana"></app-sorteados-da-semana>
 
+<app-ranking *ngIf="mostraRanking" (fecharEvent)="mostraRanking = false"></app-ranking>
+
 
 <div class="botoes-de-acao">
     <div class="sorteados-da-semana" *ngIf="sorteiosDaSemana.length" (click)="mostraSorteados = true">
         <img src="/assets/images/calendar.svg" alt="Calendário">
+    </div>
+
+    <div class="sorteados-da-semana" (click)="mostraRanking = true">
+        <img src="/assets/images/champion.svg" alt="Calendário">
     </div>
 </div>

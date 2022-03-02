@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     sorteando = false;
     mostraBotao = true;
     mostraSorteados = false;
+    mostraRanking = false;
 
     facilitador!: Participante | undefined;
     secretario!: Participante | undefined;

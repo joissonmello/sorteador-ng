@@ -14,11 +14,15 @@ export class SorteioService {
         private http: HttpClient
     ) { }
 
+    create(body: Sorteio): Observable<Sorteio> {
+        return this.http.post<Sorteio>(`${environment.urlBackEndApi}api/sorteio/`, body);
+    }
+
     sorteiosDaSemana(queryOptions: QueryOptions): Observable<Sorteio[]> {
         return this.http.get<Sorteio[]>(`${environment.urlBackEndApi}api/sorteio/sorteios-da-semana/${queryOptions.toQueryString()}`);
     }
 
-    create(body: Sorteio): Observable<Sorteio> {
-        return this.http.post<Sorteio>(`${environment.urlBackEndApi}api/sorteio/`, body);
+    ranking(queryOptions: QueryOptions): Observable<any[]> {
+        return this.http.get<any[]>(`${environment.urlBackEndApi}api/sorteio/ranking/${queryOptions.toQueryString()}`);
     }
 }

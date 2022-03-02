@@ -10,6 +10,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppComponent } from './app.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
 import { SorteadosDaSemanaComponent } from './components/sorteados-da-semana/sorteados-da-semana.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -17,6 +18,7 @@ registerLocaleData(ptBr);
         AppComponent,
         ResultadoComponent,
         SorteadosDaSemanaComponent,
+        RankingComponent,
     ],
     imports: [
         BrowserModule,
