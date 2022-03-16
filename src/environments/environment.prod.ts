@@ -20,5 +20,6 @@ if (domain === credilab) {
 export const environment = {
     production: true,
     urlBackEndApi,
-    anoInicial
+    anoInicial,
+    titulo
 };
