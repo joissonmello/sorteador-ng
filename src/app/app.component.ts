@@ -8,6 +8,7 @@ import { ParticipanteService } from 'src/app/services/participante/participante.
 import { SorteioService } from 'src/app/services/sorteio/sorteio.service';
 import { QueryOptions } from 'src/app/utils/query-options';
 import * as _ from 'lodash';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
     facilitador!: Participante | undefined;
     secretario!: Participante | undefined;
     sorteiosDaSemana: Sorteio[] = [];
+    titulo = environment.titulo;
 
     constructor(
         private participanteService: ParticipanteService,

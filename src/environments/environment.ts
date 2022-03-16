@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     urlBackEndApi: 'http://localhost:8000/',
-    anoInicial: 2021
+    anoInicial: 2021,
+    titulo: 'Sorteador Credilab'
 };
 
 /*
