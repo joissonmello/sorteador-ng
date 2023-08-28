@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col d-flex flex-wrap justify-content-center">
-                    <img src="https://softfocus.com.br/avatares/{{ participante.avatar }}" [alt]="participante.nome"
+                    <img src="{{ participante.avatar }}" [alt]="participante.nome"
                         [title]="participante.nome" *ngFor="let participante of participantes" class="participante"
                         id="f-{{ participante.id }}" [class.inelegivel]="participante.inelegivelFacilitador"
                         [class.selecionado]="facilitador?.id === participante.id"
@@ -42,7 +42,7 @@
 
             <div class="row">
                 <div class="col d-flex flex-wrap justify-content-center">
-                    <img src="https://softfocus.com.br/avatares/{{ participante.avatar }}" [alt]="participante.nome"
+                    <img src="{{ participante.avatar }}" [alt]="participante.nome"
                         [title]="participante.nome" *ngFor="let participante of participantes" class="participante"
                         id="s-{{ participante.id }}" [class.inelegivel]="participante.inelegivelSecretario"
                         [class.selecionado]="secretario?.id === participante.id"
