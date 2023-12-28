@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as _ from 'lodash';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Participante } from 'src/app/models/participante';
@@ -7,7 +8,6 @@ import { Sorteio } from 'src/app/models/sorteio';
 import { ParticipanteService } from 'src/app/services/participante/participante.service';
 import { SorteioService } from 'src/app/services/sorteio/sorteio.service';
 import { QueryOptions } from 'src/app/utils/query-options';
-import * as _ from 'lodash';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -95,11 +95,17 @@ export class AppComponent implements OnInit {
                 secretario.inelegivelSecretario = true;
             }
         });
+
+        // this.participantes.forEach(p => {
+        //     if (p.id === 1) {
+        //         p.inelegivelFacilitador = true;
+        //     }
+        // })
     }
 
     setaProximoDia(data: Date): void {
         data.setDate(data.getDate() + 1);
-        if ([0, 6].includes(data.getDay())) {
+        if ([0, 3, 6].includes(data.getDay())) {
             this.setaProximoDia(data);
             return;
         }
@@ -118,19 +124,17 @@ export class AppComponent implements OnInit {
     }
 
     sortear(): void {
-        if (this.form.valid) {
-            if (!this.sorteando) {
-                this.sorteando = true;
-                if (!this.facilitador) {
-                    const numeroFacilitador = this.numeroAleatorio();
-                    this.animaFacilitador(numeroFacilitador, 'f');
-                }
+        if (this.form.valid && !this.sorteando) {
+              this.sorteando = true;
+              if (!this.facilitador) {
+                  const numeroFacilitador = this.numeroAleatorio();
+                  this.animaFacilitador(numeroFacilitador, 'f');
+              }
 
-                if (!this.secretario) {
-                    const numeroSecretario = this.numeroAleatorio();
-                    this.animaFacilitador(numeroSecretario, 's');
-                }
-            }
+              if (!this.secretario) {
+                  const numeroSecretario = this.numeroAleatorio();
+                  this.animaFacilitador(numeroSecretario, 's');
+              }
         }
     }
 
