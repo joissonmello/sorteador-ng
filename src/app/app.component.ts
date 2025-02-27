@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { defineLocale, ptBrLocale } from 'ngx-bootstrap/chronos';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
     participantes!: Participante[];
-    form!: FormGroup;
+    form!: UntypedFormGroup;
     sorteando = false;
     mostraBotao = true;
     mostraSorteados = false;
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
         private participanteService: ParticipanteService,
         private sorteioService: SorteioService,
         private localeService: BsLocaleService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private changeDetectorRef: ChangeDetectorRef,
     ) {
         ptBrLocale.invalidDate = 'Data inválida';

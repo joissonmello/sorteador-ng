@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { SorteioService } from 'src/app/services/sorteio/sorteio.service';
 import { QueryOptions } from 'src/app/utils/query-options';
 import { environment } from 'src/environments/environment';
@@ -15,7 +15,7 @@ export class RankingComponent implements OnInit {
     carregando = true;
     anoInicial = environment.anoInicial;
     anosSelecionaveis: number[] = [];
-    anoControl = new FormControl(new Date().getFullYear());
+    anoControl = new UntypedFormControl(new Date().getFullYear());
     sorteios: any;
 
     constructor(

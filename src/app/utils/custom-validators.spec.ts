@@ -1,12 +1,12 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { CustomValidators } from 'src/app/utils/custom-validators';
 
 describe('Custom Validators', () => {
-    let form: FormGroup;
+    let form: UntypedFormGroup;
 
     beforeEach(() => {
-        form = new FormGroup({
-            campo: new FormControl('')
+        form = new UntypedFormGroup({
+            campo: new UntypedFormControl('')
         });
     });
 
