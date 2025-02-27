@@ -8,7 +8,7 @@
                 <select name="ano" id="ano" [formControl]="anoControl" class="form-control">
                     <option value="">Maiores de todos os tempos</option>
                     @for (ano of anosSelecionaveis; track ano) {
-                    <option [ngValue]="ano">{{ ano }}</option>
+                        <option [ngValue]="ano">{{ ano }}</option>
                     }
                 </select>
             </div>
@@ -16,10 +16,10 @@
                 <div class="total-sorteios">
                     <h1>{{ sorteios?.total_sorteios }}</h1>
                     @if (anoControl.value) {
-                    <h5>sorteios realizados no período</h5>
+                        <h5>sorteios realizados no período</h5>
                     }
                     @if (!anoControl.value) {
-                    <h5>sorteios realizados até hoje</h5>
+                        <h5>sorteios realizados até hoje</h5>
                     }
                 </div>
             </div>
@@ -65,13 +65,13 @@
                         </thead>
                         <tbody>
                             @for (facilitador of sorteios?.facilitadores; track facilitador; let i = $index) {
-                            <tr>
-                                @if (i > 2) {
-                                <td>{{ i + 1 }}ª</td>
-                                <td>{{ facilitador.facilitador__nome }}</td>
-                                <td>{{ facilitador.total }}</td>
-                                }
-                            </tr>
+                                <tr>
+                                    @if (i > 2) {
+                                        <td>{{ i + 1 }}ª</td>
+                                        <td>{{ facilitador.facilitador__nome }}</td>
+                                        <td>{{ facilitador.total }}</td>
+                                    }
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -117,13 +117,13 @@
                         </thead>
                         <tbody>
                             @for (secretario of sorteios?.secretarios; track secretario; let i = $index) {
-                            <tr>
-                                @if (i > 2) {
-                                <td>{{ i + 1 }}ª</td>
-                                <td>{{ secretario.secretario__nome }}</td>
-                                <td>{{ secretario.total }}</td>
-                                }
-                            </tr>
+                                <tr>
+                                    @if (i > 2) {
+                                        <td>{{ i + 1 }}ª</td>
+                                        <td>{{ secretario.secretario__nome }}</td>
+                                        <td>{{ secretario.total }}</td>
+                                    }
+                                </tr>
                             }
                         </tbody>
                     </table>
