@@ -7,14 +7,20 @@
                 <label for="ano">Escolha um ano</label>
                 <select name="ano" id="ano" [formControl]="anoControl" class="form-control">
                     <option value="">Maiores de todos os tempos</option>
-                    <option [ngValue]="ano" *ngFor="let ano of anosSelecionaveis">{{ ano }}</option>
+                    @for (ano of anosSelecionaveis; track ano) {
+                    <option [ngValue]="ano">{{ ano }}</option>
+                    }
                 </select>
             </div>
             <div class="col-4 form-group">
                 <div class="total-sorteios">
                     <h1>{{ sorteios?.total_sorteios }}</h1>
-                    <h5 *ngIf="anoControl.value">sorteios realizados no período</h5>
-                    <h5 *ngIf="!anoControl.value">sorteios realizados até hoje</h5>
+                    @if (anoControl.value) {
+                    <h5>sorteios realizados no período</h5>
+                    }
+                    @if (!anoControl.value) {
+                    <h5>sorteios realizados até hoje</h5>
+                    }
                 </div>
             </div>
         </div>
@@ -58,13 +64,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let facilitador of sorteios?.facilitadores; let i = index;">
-                                <ng-container *ngIf="i > 2">
-                                    <td>{{ i + 1 }}ª</td>
-                                    <td>{{ facilitador.facilitador__nome }}</td>
-                                    <td>{{ facilitador.total }}</td>
-                                </ng-container>
+                            @for (facilitador of sorteios?.facilitadores; track facilitador; let i = $index) {
+                            <tr>
+                                @if (i > 2) {
+                                <td>{{ i + 1 }}ª</td>
+                                <td>{{ facilitador.facilitador__nome }}</td>
+                                <td>{{ facilitador.total }}</td>
+                                }
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -108,13 +116,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let secretario of sorteios?.secretarios; let i = index;">
-                                <ng-container *ngIf="i > 2">
-                                    <td>{{ i + 1 }}ª</td>
-                                    <td>{{ secretario.secretario__nome }}</td>
-                                    <td>{{ secretario.total }}</td>
-                                </ng-container>
+                            @for (secretario of sorteios?.secretarios; track secretario; let i = $index) {
+                            <tr>
+                                @if (i > 2) {
+                                <td>{{ i + 1 }}ª</td>
+                                <td>{{ secretario.secretario__nome }}</td>
+                                <td>{{ secretario.total }}</td>
+                                }
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
