@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import ptBr from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,23 +13,17 @@ import { SorteadosDaSemanaComponent } from './components/sorteados-da-semana/sor
 import { RankingComponent } from './components/ranking/ranking.component';
 
 registerLocaleData(ptBr);
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         ResultadoComponent,
         SorteadosDaSemanaComponent,
         RankingComponent,
     ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         BsDatepickerModule.forRoot(),
         BrowserAnimationsModule,
-        ReactiveFormsModule
-    ],
-    providers: [
+        ReactiveFormsModule], providers: [
         { provide: LOCALE_ID, useValue: 'pt' },
-    ],
-    bootstrap: [AppComponent]
-})
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
