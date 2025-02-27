@@ -7,7 +7,8 @@ import { SorteioService } from 'src/app/services/sorteio/sorteio.service';
 @Component({
     selector: 'app-resultado',
     templateUrl: './resultado.component.html',
-    styleUrls: ['./resultado.component.scss']
+    styleUrls: ['./resultado.component.scss'],
+    standalone: false
 })
 export class ResultadoComponent {
     @Input() facilitador!: Participante;

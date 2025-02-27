@@ -5,7 +5,8 @@ import { Sorteio } from 'src/app/models/sorteio';
 @Component({
     selector: 'app-sorteados-da-semana',
     templateUrl: './sorteados-da-semana.component.html',
-    styleUrls: ['./sorteados-da-semana.component.scss']
+    styleUrls: ['./sorteados-da-semana.component.scss'],
+    standalone: false
 })
 export class SorteadosDaSemanaComponent implements OnInit {
     @Output() fecharEvent = new EventEmitter();
