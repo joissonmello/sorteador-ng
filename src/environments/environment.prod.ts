@@ -4,17 +4,12 @@ let titulo = '';
 
 const domain = window.location.host;
 
-const credilab = 'sorteador-credilab-ng.herokuapp.com';
-const proagrolab = 'sorteador-proagrolab-ng.herokuapp.com';
+const backend = 'https://sorteador-ng.vercel.app/';
 
-if (domain === credilab) {
-    urlBackEndApi = 'https://sorteador-credilab-py.herokuapp.com/';
+if (domain === backend) {
+    urlBackEndApi = 'https://web-production-88f594.up.railway.app/';
     anoInicial = 2021;
-    titulo = 'Sorteador Credilab';
-} else if (domain === proagrolab) {
-    urlBackEndApi = 'https://sorteador-proagrolab-py.herokuapp.com/';
-    anoInicial = 2022;
-    titulo = 'Sorteador Proagrolab';
+    titulo = 'Sorteador Zoom';
 }
 
 export const environment = {
