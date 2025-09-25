@@ -4,7 +4,7 @@ let titulo = '';
 
 const domain = window.location.host;
 
-const backend = 'https://sorteador-ng.vercel.app/';
+const backend = 'sorteador-ng.vercel.app';
 
 if (domain === backend) {
     urlBackEndApi = 'https://web-production-88f594.up.railway.app/';
