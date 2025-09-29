@@ -1,0 +1,86 @@
+.fundo-laranja {
+    background-color: #f05800;
+    background: linear-gradient(135deg, #f05800 0%, #e04900 100%);
+}
+
+.card {
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.card-body {
+    border-radius: 15px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #f05800;
+    box-shadow: 0 0 0 0.2rem rgba(240, 88, 0, 0.25);
+}
+
+.btn-primary {
+    background-color: #f05800;
+    border-color: #f05800;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e04900;
+    border-color: #e04900;
+    transform: translateY(-1px);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(240, 88, 0, 0.5);
+}
+
+.btn-primary:disabled {
+    background-color: #f05800;
+    border-color: #f05800;
+    opacity: 0.7;
+    transform: none;
+}
+
+.form-label {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.invalid-feedback {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Responsividade adicional */
+@media (max-width: 576px) {
+    .card-body {
+        padding: 2rem !important;
+    }
+
+    .form-control {
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+}

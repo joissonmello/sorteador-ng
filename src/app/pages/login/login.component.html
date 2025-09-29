@@ -1,0 +1,51 @@
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center fundo-laranja">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h2 class="card-title text-dark mb-3">Entrar</h2>
+                        <p class="text-muted">Faça login em sua conta</p>
+                    </div>
+
+                    <form [formGroup]="formularioLogin" (ngSubmit)="realizarLogin()">
+                        <!-- Campo E-mail -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold">Usuário</label>
+                            <input type="username" class="form-control" [class.is-invalid]="campoTemErro('username')"
+                                id="username" formControlName="username" placeholder="Digite seu e-mail" autocomplete="username">
+
+                            <div class="invalid-feedback" *ngIf="campoTemErro('username')">
+                                {{ obterMensagemErro('email') }}
+                            </div>
+                        </div>
+
+                        <!-- Campo Senha -->
+                        <div class="mb-4">
+                            <label for="senha" class="form-label fw-semibold">Senha</label>
+                            <input type="password" class="form-control" [class.is-invalid]="campoTemErro('senha')"
+                                id="senha" formControlName="senha" placeholder="Digite sua senha"
+                                autocomplete="current-password">
+
+                            <div class="invalid-feedback" *ngIf="campoTemErro('senha')">
+                                {{ obterMensagemErro('senha') }}
+                            </div>
+                        </div>
+
+                        <!-- Botão Login -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="carregando">
+                                @if (carregando) {
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                }
+                                @else {
+                                    Entrar
+                                }
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
